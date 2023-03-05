@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title>
-    <link rel="stylesheet" type="text/css" href="../Style/FooterSky/style.css">
+    <link rel="stylesheet" href="../Style/Style.css">
 </head>
 <body>
     <footer>
