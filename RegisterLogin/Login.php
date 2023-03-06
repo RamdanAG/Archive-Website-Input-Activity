@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOgin</title>
-    <link rel="stylesheet" href="../styleLogin/Login.css">
+    <link rel="stylesheet" href="../Style/styleLogin/Login.css">
     <link rel="stylesheet" href="../resetCSS/reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,14 +20,16 @@
     
     <div class="forminput">
         <form action="post">
-            <tr>
-                <td><label for="Username" class="label-text"></label></td>
-                <td><input class="input1 bentuk hoverinput" id="Username" type="text" placeholder="Username"></td>
-            </tr>
-            <tr>
-                <td><label for="email" class="label-text"></label></td>
-                <td><input class="input2 bentuk hoverinput" id="email" type="email" placeholder="Email"></td>
-            </tr>
+            <div class="two-columns">
+                <tr>
+                    <td><label for="Username" class="label-text"></label></td>
+                    <td><input class="input1 bentuk hoverinput" id="Username" type="text" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td><label for="email" class="label-text"></label></td>
+                    <td><input class="input2 bentuk hoverinput" id="email" type="email" placeholder="Email"></td>
+                </tr>
+            </div>
             <tr>
                 <td><label for="password" class="label-text"></label></td>
                 <td><input class="input3 bentuk hoverinput" id="password" type="password" placeholder="Password"></td>
@@ -39,6 +41,6 @@
             <input type="submit" value="Submit" class="input5 bentuk2"/>
         </form>
     </div>
-    <img src="https://source.unsplash.com/random/500x500/?technology" alt="Gambar Random">
+    <img src="https://source.unsplash.com/random/500x500/?technology" alt="Gambar Random" class="img">
 </body>
 </html>
