@@ -1,16 +1,20 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "db_webarsip");
+    $conn = mysqli_connect("localhost", "root", "", "database_bbpmp");
 
     if (isset($_POST["submit"])) {
     // ambil setiap data di elemen
     $namaKegiatan = $_POST["nama_kegiatan"];
-    $jenisKegiatan = $_POST["jenis_kegiatan"];
-    $lokasi = $_POST["lokasi"];
-    $PIC = $_POST["PIC"];
-    $tanggal = $_POST["tanggal"];
-    $Dokumentasi = $_POST["file"];
+    $tempatkegiatan = $_POST["tempat_kegiatan"];
+    $PDM = $_POST["PDM"];
+    $metodeKegiatan = $_POST["metode_kegiatan"];
+    $tanggalMulai = $_POST["tanggal_mulai"];
+    $tanggalAkhir = $_POST["tanggal_akhir"];
+    $File1 = $_POST["file1"];
+    $File2 = $_POST["file2"];
+    $File3 = $_POST["file3"];
+    $File4 = $_POST["file4"];
 
-    $query = "INSERT INTO kegiatan (nama_kegiatan, jenis_kegiatan, lokasi, PIC, tanggal, file) VALUES ('$namaKegiatan','$jenisKegiatan','$lokasi','$PIC','$tanggal','$Dokumentasi')";
+    $query = "INSERT INTO kegiatan (nama_kegiatan, tempat_kegiatan, PDM, metode_kegiatan, tanggal_mulai, tanggal_akhir, file1, file2, file3, file4) VALUES ('','$namaKegiatan','$tempatkegiatan','$PDM','$metodeKegiatan','$tanggalMulai','$File1','$File2','$File3','$File4')";
 
     mysqli_query($conn, $query);
 }
@@ -27,7 +31,7 @@
    </head>
 <body>
   <div class="container">
-    <div class="title">Isi Inputan</div>
+    <div class="title">Dokumentasi Kegiatan</div>
     <div class="content">
       <form action="" method="post">
           <div class="user-details">
@@ -35,26 +39,58 @@
               <span class="details">Nama Kegiatan (1-20) </span>
               <input type="text" name="nama_kegiatan" placeholder="......." required>
             </div>
+
             <div class="input-box">
-              <span class="details">jenis Kegiatan (1-20)</span>
-              <input type="text" name="jenis_kegiatan" placeholder="......." required>
+              <span class="details">Tempat Kegiatan</span>
+              <input type="text" name="tempat_kegiatan" placeholder="......." required>
             </div>
+
             <div class="input-box">
-              <span class="details">Provinsi</span>
-              <input type="text" name="lokasi" placeholder="......." required>
+              <span class="details">Tanggal Mulai</span>
+              <input type="date" name="tanggal_mulai" required>
             </div>
+
             <div class="input-box">
-              <span class="details">Tanggal</span>
-              <input type="date" name="tanggal" required>
+              <span class="details">Tanggal Akhir</span>
+              <input type="date" name="tanggal_akhir" required>
             </div>
+
             <div class="input-box">
-              <span class="details">PIC (1-10)</span>
-              <input type="text" name="PIC" placeholder="......." required>
+              <span class="details">PDM (1-12)</span>
+              <input type="text" name="PDM" placeholder="......." required>
             </div>
+            
             <div class="input-box">
-              <span class="details">Dokumentasi/PDF</span>
-              <input type="file" name="file" accept=".pdf" style="border:none; margin-top: 0.8em;">
+              <span class="details">Dokumentasi</span>
+              <input type="file" name="file1" style="border:none; margin-top: 0.8em;">
             </div>
+
+            <div class="input-box">
+              <span class="details">Implementasi</span>
+              <input type="file" name="file2" style="border:none; margin-top: 0.8em;">
+            </div>
+
+            <div class="input-box">
+              <span class="details">Word</span>
+              <input type="file" name="file3" style="border:none; margin-top: 0.8em;">
+            </div>
+
+            <div class="input-box">
+              <span class="details">Luring</span>
+              <input type="file" name="file4" style="border:none; margin-top: 0.8em;">
+            </div>
+            
+            <div class="input-box">
+              <span class="details">Metode Kegiatan Pilihan</span>
+              <select id="pilihan" name="metode_kegiatan" style="padding: 0px 20px 3px 0px; border-radius: 5px; text-align: center;   border-color: #9b59b6; margin-left: 1em;">
+                <option value="option1" style="">Daring</option>
+                <option value="option2">Luring</option>
+                <option value="option3">Hybrid</option>
+              </select>
+
+            </div>
+            <div class="gender-details">
+        </div>
           </div>
           <div class="button">
             <input type="submit" value="Submit" name="submit">
