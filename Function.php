@@ -1,5 +1,6 @@
 <?php
       //koneksi ke database
+      mysqli_connect("localhost", "username", "password", "nama_database");
       $conn = mysqli_connect("localhost", "username", "password", "nama_database");
 
       //query untuk mengambil data dari tabel
@@ -10,7 +11,4 @@
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<span class='data-list'>" . $row['name'] . "</span>";
       }
-
-      //menutup koneksi database
-      mysqli_close($conn);
 ?>

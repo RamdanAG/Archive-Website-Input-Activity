@@ -11,8 +11,15 @@ body{
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: url(https://source.unsplash.com/1920x1080);
+  background-size: cover;
 }
+
+.checkboxes input[type="checkbox"] {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .container{
   max-width: 700px;
   width: 100%;
