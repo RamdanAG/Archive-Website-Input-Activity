@@ -8,7 +8,7 @@
     <title>footer</title>
     <link rel="stylesheet" href="../Style/FooterSky/style.css">
 </head>
-<body>
+<body style="background: url(https://source.unsplash.com/1920x1080);">
     <footer>
         <div class="container">
             <div class="sec aboutus">

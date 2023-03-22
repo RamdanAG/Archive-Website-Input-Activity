@@ -11,7 +11,6 @@ body{
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: url(https://source.unsplash.com/1920x1080);
   background-size: cover;
 }
 
@@ -106,6 +105,7 @@ form .input-box span.details{
  form input[type="radio"]{
    display: none;
  }
+
  form .button{
    height: 45px;
    margin: 35px 0

@@ -30,9 +30,9 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="Input.php">
                     <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
+                    <span class="link-name">Input</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-chart"></i>

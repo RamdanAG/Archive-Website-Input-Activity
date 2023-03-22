@@ -1,26 +1,6 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "database_bbpmp");
-
-    if (isset($_POST["submit"])) {
-    // ambil setiap data di elemen
-    $namaKegiatan = $_POST["nama_kegiatan"];
-    $tempatkegiatan = $_POST["tempat_kegiatan"];
-    $PDM = $_POST["PDM"];
-    $metodeKegiatan = $_POST["metode_kegiatan"];
-    $tanggalMulai = $_POST["tanggal_mulai"];
-    $tanggalAkhir = $_POST["tanggal_akhir"];
-    $File1 = $_POST["file1"];
-    $File2 = $_POST["file2"];
-    $File3 = $_POST["file3"];
-    $File4 = $_POST["file4"];
-
-    $query = "INSERT INTO kegiatan (nama_kegiatan, tempat_kegiatan, PDM, metode_kegiatan, tanggal_mulai, tanggal_akhir, file1, file2, file3, file4) VALUES ('','$namaKegiatan','$tempatkegiatan','$PDM','$metodeKegiatan','$tanggalMulai','$File1','$File2','$File3','$File4')";
-
-    mysqli_query($conn, $query);
-}
-
+  include 'function.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -37,12 +17,12 @@
           <div class="user-details">
             <div class="input-box">
               <span class="details">Nama Kegiatan (1-20) </span>
-              <input type="text" name="nama_kegiatan" placeholder="......." required>
+              <input type="text" name="nama_kegiatan" placeholder="......." required maxlength="20">
             </div>
 
             <div class="input-box">
-              <span class="details">Tempat Kegiatan</span>
-              <input type="text" name="tempat_kegiatan" placeholder="......." required>
+              <span class="details">Tempat Kegiatan (1-20)</span>
+              <input type="text" name="tempat_kegiatan" placeholder="......." required maxlength="20">
             </div>
 
             <div class="input-box">
@@ -57,7 +37,17 @@
 
             <div class="input-box">
               <span class="details">PDM (1-12)</span>
-              <input type="text" name="PDM" placeholder="......." required>
+              <input type="text" name="PDM" placeholder="......." required maxlength="12">
+            </div>
+
+            <div class="input-box">
+              <span class="details">Metode Kegiatan Pilihan</span>
+              <select id="pilihan" name="metode_kegiatan" style="padding: 0px 20px 3px 0px; border-radius: 5px; text-align: center;   border-color: #9b59b6; margin-left: 1em;">
+                <option value="option1">Daring</option>
+                <option value="option2">Luring</option>
+                <option value="option3">Hybrid</option>
+              </select>
+
             </div>
             
             <div class="input-box">
@@ -77,23 +67,16 @@
 
             <div class="input-box">
               <span class="details">Luring</span>
-              <input type="file" name="file4" style="border:none; margin-top: 0.8em;">
-            </div>
-            
-            <div class="input-box">
-              <span class="details">Metode Kegiatan Pilihan</span>
-              <select id="pilihan" name="metode_kegiatan" style="padding: 0px 20px 3px 0px; border-radius: 5px; text-align: center;   border-color: #9b59b6; margin-left: 1em;">
-                <option value="option1" style="">Daring</option>
-                <option value="option2">Luring</option>
-                <option value="option3">Hybrid</option>
-              </select>
-
+              <input type="file" name="file4" style="border:none; margin-top: 0.8em; margin-left: 1.2em;">
             </div>
             <div class="gender-details">
         </div>
           </div>
           <div class="button">
             <input type="submit" value="Submit" name="submit">
+          </div>
+          <div class="button">
+            <button class="buttonhome" style="height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff; font-size: 18px; font-weight: 500; letter-spacing: 1px; cursor: pointer; background: #3c79f5;"><a href="Dashboard.php" style="color:white; text-decoration: none;">Kembali Ke Dashboard</a></button>
           </div>
       </form>
     </div>
