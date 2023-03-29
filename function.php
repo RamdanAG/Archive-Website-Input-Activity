@@ -1,5 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "database_bbpmp");
+$sql = "SELECT * FROM kegiatan";
+$ID_kegiatan = ["ID_kegiatan"];
 
 function tambah($data)
 {
@@ -14,6 +16,13 @@ function tambah($data)
     $file2 = htmlspecialchars($data["file2"]);
     $file3 = htmlspecialchars($data["file3"]);
     $file4 = htmlspecialchars($data["file4"]);
+
+    if (isset($data["ID_kegiatan"])) {
+        $ID_kegiatan = htmlspecialchars($data["ID_kegiatan"]);
+    } else {
+        // lakukan sesuatu jika kunci "ID_kegiatan" tidak ditemukan
+    }
+    // kode selanjutnya
 
     switch ($metode_kegiatan) {
         case "option1":
@@ -34,5 +43,21 @@ function tambah($data)
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+}
+
+function hapus($id){
+    global $conn;
+    mysqli_query($conn, "DELETE FROM kegiatan WHERE ID_kegiatan = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function query($query){
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ( $row = mysqli_fetch_assoc($result)){
+        $rows[] = $row;
+    }
+    return $rows;
 }
 ?>

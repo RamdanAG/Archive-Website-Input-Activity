@@ -67,13 +67,14 @@ thead th{
     top: 0;
     background-color: #f6f9fc;
     color: #8493A5;
-    font-size: 5px;
+    font-size: 10px;
 }
 th,td{
    border-bottom: 1px solid #dddddd ; 
    padding: 10px 20px;
    word-break: break-all;
    text-align: center;
+   font-size: 15px;
 }
 td img{
     height: 60px;

@@ -62,13 +62,11 @@
                         echo '<td>' . $row['file3'] . '</td>'; // Ganti dengan kolom owner Anda
                         echo '<td>' . $row['file4'] . '</td>'; // Ganti dengan kolom owner Anda
                         echo '<td>';
-                            echo '<button><i class="fa-solid fa-pen-to-square"></i></button>';
-                            echo '<button><i class="fa-sharp fa-solid fa-trash"></i></button>';
-                            echo '</td>';
+                        echo '<button><a href="update.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-solid fa-pen-to-square"></i></a></button>';
+                        echo '<button><a href="hapus.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-sharp fa-solid fa-trash"></i></a></button>';
                         echo '</tr>';
                     }
                     }
-
                     echo '</tbody>';
                 echo '</table>';
             echo '</div>';
