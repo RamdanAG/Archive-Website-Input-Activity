@@ -1,13 +1,28 @@
 <?php
 require 'function.php';
-if (isset($_POST["submit"])) {
-  tambah($_POST);
-}
 
 $ID_kegiatan = $_GET["ID_kegiatan"];
 $dok = query("SELECT * FROM kegiatan WHERE ID_kegiatan = $ID_kegiatan")[0];
 
+if (isset($_POST["submit"])) {
+  if (ubah($_POST) > 0) {
+    echo "
+    <script>
+      alert('data berhasil di ubah!');
+      document.location.href = 'Dashboard.php';
+    </script>
+    ";
+  } else {
+    echo "
+    <script>
+      alert('data gagal di ubah!');
+      document.location.href = 'Dashboard.php';
+    </script>
+    ";
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -25,34 +40,35 @@ $dok = query("SELECT * FROM kegiatan WHERE ID_kegiatan = $ID_kegiatan")[0];
       <form action="" method="post">
         <div class="user-details">
           <div class="input-box">
+            <input type="hidden" name="ID_kegiatan" value="<?= $dok["ID_kegiatan"]?>">
             <span class="details">Nama Kegiatan (1-20) </span>
             <input type="text" name="nama_kegiatan" placeholder="......." required maxlength="20" value="<?= $dok["nama_kegiatan"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Tempat Kegiatan (1-20)</span>
-            <input type="text" name="tempat_kegiatan" placeholder="......." required maxlength="20">
+            <input type="text" name="tempat_kegiatan" placeholder="......." required maxlength="20" value="<?= $dok["tempat_kegiatan"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Tanggal Mulai</span>
-            <input type="date" name="tanggal_mulai" required>
+            <input type="date" name="tanggal_mulai" required value="<?= $dok["tanggal_mulai"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Tanggal Akhir</span>
-            <input type="date" name="tanggal_akhir" required>
+            <input type="date" name="tanggal_akhir" required value="<?= $dok["tanggal_akhir"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">PDM (1-12)</span>
-            <input type="text" name="PDM" placeholder="......." required maxlength="12">
+            <input type="text" name="PDM" placeholder="......." required maxlength="12" value="<?= $dok["PDM"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Metode Kegiatan Pilihan</span>
             <select id="pilihan" name="metode_kegiatan"
-              style="padding: 0px 20px 3px 0px; border-radius: 5px; text-align: center;   border-color: #9b59b6; margin-left: 1em;">
+              style="padding: 0px 20px 3px 0px; border-radius: 5px; text-align: center;   border-color: #9b59b6; margin-left: 1em;" value="<?= $dok["metode_kegiatan"]?>">
               <option value="option1">Daring</option>
               <option value="option2">Luring</option>
               <option value="option3">Hybrid</option>
@@ -62,22 +78,22 @@ $dok = query("SELECT * FROM kegiatan WHERE ID_kegiatan = $ID_kegiatan")[0];
 
           <div class="input-box">
             <span class="details">Dokumentasi</span>
-            <input type="file" name="file1" style="border:none; margin-top: 0.8em;">
+            <input type="file" name="file1" style="border:none; margin-top: 0.8em;" value="<?= $dok["file1"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Implementasi</span>
-            <input type="file" name="file2" style="border:none; margin-top: 0.8em;">
+            <input type="file" name="file2" style="border:none; margin-top: 0.8em;" value="<?= $dok["file2"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Word</span>
-            <input type="file" name="file3" style="border:none; margin-top: 0.8em;">
+            <input type="file" name="file3" style="border:none; margin-top: 0.8em;" value="<?= $dok["file3"]?>">
           </div>
 
           <div class="input-box">
             <span class="details">Luring</span>
-            <input type="file" name="file4" style="border:none; margin-top: 0.8em; margin-left: 1.2em;">
+            <input type="file" name="file4" style="border:none; margin-top: 0.8em; margin-left: 1.2em;" value="<?= $dok["file4"]?>">
           </div>
           <div class="gender-details">
           </div>

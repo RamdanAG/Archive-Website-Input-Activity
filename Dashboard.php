@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +14,18 @@
         <div class="table_header">
             <p>product detail</p>
             <div>
-                <input placeholder="product" />
-                <button class="add_new">+add New</button>
+                <form action="" method="post">
+                <?php
+                    include 'function.php';
+                    $kegiatan = query("SELECT * FROM kegiatan");
+                    // if( isset($_POST["cari"])){
+                    //     $kegiatan = cari($_POST["keyword"]);
+                    // }
+                ?>
+                    <input placeholder="Keyword Pencarian" name="keyword" autofocus autocomplete="off"/>
+                    <button type submit name="cari" class="add_new">Cari!</button>
+                    <button class="add_new">+add New</button>
+                </form>
             </div>
         </div>
         <?php
@@ -41,7 +50,7 @@
                         echo '<th>file2</th>';
                         echo '<th>file3</th>';
                         echo '<th>file4</th>';
-                        echo '<th>Hapus/Update</th>';
+                        echo '<th>Update & Hapus</th>';
                         echo '</tr>';
                     echo '</thead>';
                 echo '<tbody>';
@@ -62,8 +71,8 @@
                         echo '<td>' . $row['file3'] . '</td>'; // Ganti dengan kolom owner Anda
                         echo '<td>' . $row['file4'] . '</td>'; // Ganti dengan kolom owner Anda
                         echo '<td>';
-                        echo '<button><a href="update.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-solid fa-pen-to-square"></i></a></button>';
-                        echo '<button><a href="hapus.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-sharp fa-solid fa-trash"></i></a></button>';
+                        echo '<button style="margin-right: 10px;"><a style="color:white;" href="update.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-solid fa-pen-to-square"></i></a></button>';
+                        echo '<button><a style="color:white;" href="hapus.php?ID_kegiatan='. $row["ID_kegiatan"] .'"><i class="fa-sharp fa-solid fa-trash"></i></a></button>';
                         echo '</tr>';
                     }
                     }
