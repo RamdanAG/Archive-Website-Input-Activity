@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "database_bbpmp");
+$conn = mysqli_connect("localhost", "root", "", "bbpmp");
 $sql = "SELECT * FROM kegiatan";
 
 function tambah($data)
@@ -44,23 +44,26 @@ function tambah($data)
     return mysqli_affected_rows($conn);
 }
 
-function hapus($id){
+function hapus($id)
+{
     global $conn;
     mysqli_query($conn, "DELETE FROM kegiatan WHERE ID_kegiatan = $id");
     return mysqli_affected_rows($conn);
 }
 
-function query($query){
+function query($query)
+{
     global $conn;
     $result = mysqli_query($conn, $query);
     $rows = [];
-    while ( $row = mysqli_fetch_assoc($result)){
+    while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
     return $rows;
 }
 
-function ubah($data){
+function ubah($data)
+{
     global $conn;
 
     $ID_kegiatan = "";
@@ -120,32 +123,37 @@ function ubah($data){
     }
 }
 
-function cari($keyword){
+function cari($keyword)
+{
     global $conn;
-    $query = "SELECT * FROM kegiatan WHERE metode_kegiatan LIKE '%$keyword%'";
-    $result = mysqli_query($conn, $query);
-    $rows = [];
-    while ( $row = mysqli_fetch_assoc($result)){
-        $rows[] = $row;
-    }
-    return $rows;
+    $query = "SELECT * FROM kegiatan WHERE nama_kegiatan LIKE '%$keyword%' OR metode_kegiatan LIKE '%$keyword%'";
+
+    return mysqli_query($conn, $query);
+
+    // $result = mysqli_query($conn, $query);
+    // $rows = [];
+    // while ($row = mysqli_fetch_assoc($result)) {
+    //     $rows[] = $row;
+    // }
+    // return $rows;
 }
 
-function register($data) {
+function register($data)
+{
     global $conn;
 
     $username = strtolower(stripslashes($data["username"]));
     $password = mysqli_real_escape_string($conn, $data["password"]);
-    $kode_pegawai = 'pgwOZ'; 
+    $kode_pegawai = 'pgwOZ';
 
     $result = mysqli_query($conn, "SELECT username FROM akun WHERE username = '$username'");
 
-    if($data["kode_pegawai"] !== $kode_pegawai) {
+    if ($data["kode_pegawai"] !== $kode_pegawai) {
         echo "<script>alert('Kode Tidak Sesuai');</script>";
         return false;
-    } 
+    }
 
-    if(mysqli_fetch_assoc($result)) {
+    if (mysqli_fetch_assoc($result)) {
         echo "<script>alert('Username Sudah Terdaftar');</script>";
         return false;
     }
@@ -154,4 +162,3 @@ function register($data) {
     mysqli_query($conn, "INSERT INTO akun VALUES('', '$username', '$password', '$kode_pegawai')");
     return mysqli_affected_rows($conn);
 }
-?>
