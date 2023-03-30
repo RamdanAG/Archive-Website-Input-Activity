@@ -1,16 +1,16 @@
 <?php
 require 'function.php';
 
-if(isset($_POST["login"])) {
+if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     // query untuk mencari data pengguna berdasarkan username
     $result = mysqli_query($conn, "SELECT * FROM akun WHERE username = '$username'");
-    if(mysqli_num_rows($result) === 1){
+    if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         // verifikasi password
-        if (password_verify($password, $row["password"])){
+        if (password_verify($password, $row["password"])) {
             // jika password benar, set session dan redirect ke halaman utama
             session_start();
             $_SESSION["username"] = $row["username"];
@@ -27,6 +27,7 @@ if(isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,6 +38,7 @@ if(isset($_POST["login"])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <div class="Heading-Text">
@@ -45,9 +47,9 @@ if(isset($_POST["login"])) {
             <h4>Selesaikan login untuk mengakses <b class="boldtext">Dashboard</b></h4>
         </div>
         <div class="forminput">
-        <?php if(isset($error) && $error): ?>
-        <p style="color:red; font-style:italic; text-align:center;">Username / Password / Kode Pegawai salah</p>
-        <?php endif; ?>
+            <?php if (isset($error) && $error) : ?>
+                <p style="color:red; font-style:italic; text-align:center;">Username / Password / Kode Pegawai salah</p>
+            <?php endif; ?>
             <form action="" method="post">
                 <div class="two-columns">
                     <tr>
@@ -63,9 +65,10 @@ if(isset($_POST["login"])) {
                         <td><input name="kode_pegawai" class="bentuk hoverinput" type="password" placeholder="Kode Pegawai" maxlength="6"></td>
                     </tr>
                 </div>
-                <input type="submit" value="Submit" class="input5 bentuk" name="login"/>
+                <input type="submit" value="Submit" class="input5 bentuk" name="login" />
             </form>
         </div>
     </div>
 </body>
+
 </html>

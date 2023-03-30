@@ -39,6 +39,10 @@ td button:nth-child(2){
     background-color: #f80000;
 }
 
+.cari {
+    color: #fff;
+}
+
 .add_new{
     padding: 10px 20px;
     color: #ffffff;
