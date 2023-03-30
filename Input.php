@@ -82,9 +82,6 @@ if (isset($_POST["submit"])) {
           <input type="submit" value="Submit" name="submit">
         </div>
         <div class="button">
-          <button class="buttonhome"
-            style="height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff; font-size: 18px; font-weight: 500; letter-spacing: 1px; cursor: pointer; background: #3c79f5;"><a
-              href="Dashboard.php" style="color:white; text-decoration: none;">Kembali Ke Dashboard</a></button>
         </div>
       </form>
     </div>

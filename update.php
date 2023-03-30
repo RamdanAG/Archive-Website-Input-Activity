@@ -9,14 +9,14 @@ if (isset($_POST["submit"])) {
     echo "
     <script>
       alert('data berhasil di ubah!');
-      document.location.href = 'Dashboard.php';
+      document.location.href = 'index.php';
     </script>
     ";
   } else {
     echo "
     <script>
       alert('data gagal di ubah!');
-      document.location.href = 'Dashboard.php';
+      document.location.href = 'index.php';
     </script>
     ";
   }

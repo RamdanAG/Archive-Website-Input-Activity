@@ -130,4 +130,28 @@ function cari($keyword){
     }
     return $rows;
 }
+
+function register($data) {
+    global $conn;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $kode_pegawai = 'pgwOZ'; 
+
+    $result = mysqli_query($conn, "SELECT username FROM akun WHERE username = '$username'");
+
+    if($data["kode_pegawai"] !== $kode_pegawai) {
+        echo "<script>alert('Kode Tidak Sesuai');</script>";
+        return false;
+    } 
+
+    if(mysqli_fetch_assoc($result)) {
+        echo "<script>alert('Username Sudah Terdaftar');</script>";
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    mysqli_query($conn, "INSERT INTO akun VALUES('', '$username', '$password', '$kode_pegawai')");
+    return mysqli_affected_rows($conn);
+}
 ?>
