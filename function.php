@@ -121,7 +121,13 @@ function ubah($data){
 }
 
 function cari($keyword){
-    $query = "SELECT * FROM kegiatan WHERE = '$keyword' ";
-    return query($query);
+    global $conn;
+    $query = "SELECT * FROM kegiatan WHERE metode_kegiatan LIKE '%$keyword%'";
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ( $row = mysqli_fetch_assoc($result)){
+        $rows[] = $row;
+    }
+    return $rows;
 }
 ?>

@@ -1,3 +1,15 @@
+<?php
+require 'function.php';
+// Ambil semua data kegiatan
+$kegiatan = query("SELECT * FROM kegiatan");
+
+// Cari kegiatan berdasarkan keyword
+if (isset($_POST["cari"])) {
+    $keyword = trim(htmlspecialchars($_POST["keyword"]));
+    $kegiatan = cari($keyword);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,28 +21,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 </head>
 
-<body>
+<body style="background-color:white;">
     <div class="table">
         <div class="table_header">
             <p>product detail</p>
             <div>
                 <form action="" method="post">
-                <?php
-                    include 'function.php';
-                    $kegiatan = query("SELECT * FROM kegiatan");
-                    // if( isset($_POST["cari"])){
-                    //     $kegiatan = cari($_POST["keyword"]);
-                    // }
-                ?>
                     <input placeholder="Keyword Pencarian" name="keyword" autofocus autocomplete="off"/>
-                    <button type submit name="cari" class="add_new">Cari!</button>
+                    <button type="submit" name="cari" class="add_new" id="keyword">Cari!</button>
                     <button class="add_new">+add New</button>
                 </form>
             </div>
         </div>
         <?php
         $sql = "SELECT * FROM kegiatan";
-        include 'function.php';
 
         $result = mysqli_query($conn, $sql);
 

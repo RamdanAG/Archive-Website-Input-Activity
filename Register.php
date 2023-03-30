@@ -17,28 +17,27 @@
             <h1>Selamat Pagi<span>.</span></h1>
             <h4>Selesaikan login untuk mengakses <b class="boldtext">Dashboard</b></h4>
         </div>
-        
         <div class="forminput">
-            <form action="post">
+            <form action="" method="post">
                 <div class="two-columns">
                     <tr>
                         <td><label for="Username" class="label-text"></label></td>
                         <td><input class="bentuk hoverinput" id="Username" type="text" placeholder="Username"></td>
                     </tr>
                     <tr>
-                        <td><label for="email" class="label-text"></label></td>
-                        <td><input class="bentuk hoverinput" id="email" type="email" placeholder="Email"></td>
+                        <td><label for="password2" class="label-text"></label></td>
+                        <td><input class="bentuk hoverinput" id="password2" type="password2" placeholder="password"></td>
                     </tr>
                     <tr>
                         <td><label for="password" class="label-text"></label></td>
-                        <td><input class="bentuk hoverinput" id="password" type="password" placeholder="Password"></td>
+                        <td><input class="bentuk hoverinput" id="password" type="password" placeholder="Konfirmasi Password"></td>
                     </tr>
                     <tr>
                         <td><label for="Kodepegawai" class="label-text"></label></td>
                         <td><input class="bentuk hoverinput" id="Kodepegawai" type="password" placeholder="Kode Pegawai"></td>
                     </tr>
                 </div>
-                <input type="submit" value="Submit" class="input5 bentuk"/>
+                <input type="submit" value="Submit" class="input5 bentuk" name="register"/>
             </form>
         </div>
     </div>
