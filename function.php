@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "bbpmp");
+$conn = mysqli_connect("localhost", "root", "", "database_bbpmp");
 $sql = "SELECT * FROM kegiatan";
 
 function tambah($data)

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'function.php';
 
 $id = $_GET["ID_kegiatan"];
@@ -18,4 +19,10 @@ if (hapus($id)) {
         </script>
     ";
 }
+
+
+if(isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+  }
 ?>

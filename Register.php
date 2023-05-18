@@ -29,7 +29,7 @@ if(isset($_POST["register"])) {
         <div class="Heading-Text">
             <h6>Di Mulai Dari Sini</h6>
             <h1>Selamat Pagi<span>.</span></h1>
-            <h4>Selesaikan login untuk mengakses <b class="boldtext">Dashboard</b></h4>
+            <h4>Selesaikan Register untuk mengakses <b class="boldtext">Login</b></h4>
         </div>
         <div class="forminput">
             <form action="" method="post">

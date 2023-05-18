@@ -1,4 +1,6 @@
 <?php
+session_start(); //memulai session
+
 require 'function.php';
 
 if (isset($_POST["login"])) {
@@ -12,8 +14,7 @@ if (isset($_POST["login"])) {
         // verifikasi password
         if (password_verify($password, $row["password"])) {
             // jika password benar, set session dan redirect ke halaman utama
-            session_start();
-            $_SESSION["username"] = $row["username"];
+            $_SESSION["login"] = true;
             header("location: index.php");
             exit;
         }
@@ -21,7 +22,6 @@ if (isset($_POST["login"])) {
     // jika username atau password salah, set flag error
     $error = true;
 }
-
 
 ?>
 
@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
                     </tr>
                     <tr>
                         <td><label for="password" class="label-text"></label></td>
-                        <td><input name="password" class="bentuk hoverinput" type="password" placeholder="password" maxlength="12"></td>
+                        <td><input name="password" class="bentuk hoverinput" type="password" placeholder="password" maxlength="12" class="text-align:center;"></td>
                     </tr>
                     <tr>
                         <td><label for="kode_pegawai" class="label-text"></label></td>

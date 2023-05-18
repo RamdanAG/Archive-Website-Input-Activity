@@ -1,4 +1,10 @@
 <?php
+session_start(); //memulai session
+
+if (!isset($_SESSION["login"])) { //memeriksa apakah session login telah di set atau belum
+    header("Location: login.php"); //jika belum, maka redirect ke halaman login
+    exit; //keluar dari script
+}
 require 'function.php';
 
 $ID_kegiatan = $_GET["ID_kegiatan"];
