@@ -60,10 +60,6 @@ if (isset($_POST["login"])) {
                         <td><label for="password" class="label-text"></label></td>
                         <td><input name="password" class="bentuk hoverinput" type="password" placeholder="password" maxlength="12" class="text-align:center;"></td>
                     </tr>
-                    <tr>
-                        <td><label for="kode_pegawai" class="label-text"></label></td>
-                        <td><input name="kode_pegawai" class="bentuk hoverinput" type="password" placeholder="Kode Pegawai" maxlength="6"></td>
-                    </tr>
                 </div>
                 <input type="submit" value="Submit" class="input5 bentuk" name="login" />
             </form>
