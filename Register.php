@@ -29,7 +29,8 @@ if(isset($_POST["register"])) {
         <div class="Heading-Text">
             <h6>Di Mulai Dari Sini</h6>
             <h1>Selamat Pagi<span>.</span></h1>
-            <h4>Selesaikan Register untuk mengakses <b class="boldtext">Login</b></h4>
+            <h4>Masuk Sebagai Akun<a href="DashboardUser.Php"><b class="boldtext">Guest</b></a></h4>
+            <h4>Sudah Memiliki Akun? <a href="Login.Php"><b class="boldtext">Login</b></a></h4>
         </div>
         <div class="forminput">
             <form action="" method="post">

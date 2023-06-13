@@ -1,10 +1,4 @@
 <?php
-session_start(); //memulai session
-
-if (!isset($_SESSION["login"])) { //memeriksa apakah session login telah di set atau belum
-    header("Location: login.php"); //jika belum, maka redirect ke halaman login
-    exit; //keluar dari script
-}
 
 require 'function.php';
 // Ambil semua data kegiatan
@@ -34,10 +28,6 @@ $kegiatan = query("SELECT * FROM kegiatan");
                     <input type="text" name="cari" placeholder="Cari">
                     <input type="submit" value="Cari">
                 </form>
-                <button><a href="Input.php" style="text-decoration:none; color:#0298cf;">Input</a></button>
-                <button><a href="Login.php" style="text-decoration:none; color:#0298cf;">Login</a></button>
-                <button><a href="Register.php" style="text-decoration:none; color:#0298cf;">Register</a></button>
-                <button><a href="logout.php" style="text-decoration:none; color:#0298cf;">Logout</a></button>
             </div>
         </div>
         <?php
@@ -68,7 +58,6 @@ $kegiatan = query("SELECT * FROM kegiatan");
         echo '<th>file2</th>';
         echo '<th>file3</th>';
         echo '<th>file4</th>';
-        echo '<th>Update & Hapus</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
@@ -88,9 +77,6 @@ $kegiatan = query("SELECT * FROM kegiatan");
                 echo '<td>' . $row['file2'] . '</td>'; // Ganti dengan kolom owner Anda
                 echo '<td>' . $row['file3'] . '</td>'; // Ganti dengan kolom owner Anda
                 echo '<td>' . $row['file4'] . '</td>'; // Ganti dengan kolom owner Anda
-                echo '<td>';
-                echo '<button style="margin-right: 10px;"><a style="color:white;" href="update.php?ID_kegiatan=' . $row["ID_kegiatan"] . '"><i class="fa-solid fa-pen-to-square"></i></a></button>';
-                echo '<button><a style="color:white;" href="hapus.php?ID_kegiatan=' . $row["ID_kegiatan"] . '"><i class="fa-sharp fa-solid fa-trash"></i></a></button>';
                 echo '</tr>';
             }
         }

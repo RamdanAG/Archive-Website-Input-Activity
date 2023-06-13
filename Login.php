@@ -44,7 +44,8 @@ if (isset($_POST["login"])) {
         <div class="Heading-Text">
             <h6>Di Mulai Dari Sini</h6>
             <h1>Selamat Pagi<span>.</span></h1>
-            <h4>Selesaikan login untuk mengakses <b class="boldtext">Dashboard</b></h4>
+            <h4>Masuk Sebagai Akun<a href="DashboardUser.Php"><b class="boldtext">Guest</b></a></h4>
+            <h4>Belum memiliki akun? silahkan <a href="Register.Php"><b class="boldtext">Register</b></a></h4>
         </div>
         <div class="forminput">
             <?php if (isset($error) && $error) : ?>

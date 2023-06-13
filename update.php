@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     </script>
     ";
   } else {
-    echo "
+    echo " s
     <script>
       alert('data gagal di ubah!');
       document.location.href = 'index.php';
@@ -81,26 +81,38 @@ if (isset($_POST["submit"])) {
             </select>
 
           </div>
-
           <div class="input-box">
             <span class="details">Dokumentasi</span>
-            <input type="file" name="file1" style="border:none; margin-top: 0.8em;" value="<?= $dok["file1"]?>">
+            <input type="file" name="file1" style="border:none; margin-top: 0.8em;">
+            <?php if (!empty($dok["file1"])): ?>
+              <span><?= $dok["file1"] ?></span>
+            <?php endif; ?>
           </div>
 
           <div class="input-box">
             <span class="details">Implementasi</span>
-            <input type="file" name="file2" style="border:none; margin-top: 0.8em;" value="<?= $dok["file2"]?>">
+            <input type="file" name="file2" style="border:none; margin-top: 0.8em;">
+            <?php if (!empty($dok["file2"])): ?>
+              <span><?= $dok["file2"] ?></span>
+            <?php endif; ?>
           </div>
 
           <div class="input-box">
             <span class="details">Word</span>
-            <input type="file" name="file3" style="border:none; margin-top: 0.8em;" value="<?= $dok["file3"]?>">
+            <input type="file" name="file3" style="border:none; margin-top: 0.8em;">
+            <?php if (!empty($dok["file3"])): ?>
+              <span><?= $dok["file3"] ?></span>
+            <?php endif; ?>
           </div>
 
           <div class="input-box">
             <span class="details">Luring</span>
-            <input type="file" name="file4" style="border:none; margin-top: 0.8em; margin-left: 1.2em;" value="<?= $dok["file4"]?>">
+            <input type="file" name="file4" style="border:none; margin-top: 0.8em;">
+            <?php if (!empty($dok["file4"])): ?>
+              <span><?= $dok["file4"] ?></span>
+            <?php endif; ?>
           </div>
+          
           <div class="gender-details">
           </div>
         </div>
